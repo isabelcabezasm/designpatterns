@@ -3,12 +3,11 @@ using System;
 
 namespace strategy
 {
-}
-
-public class FlyNoWay : IFlyBehavior
-{
-    void IFlyBehavior.fly()
+    public class FlyNoWay : IFlyBehavior
     {
-        Console.WriteLine("I can't fly :( ");
+        public void fly()
+        {
+            Console.WriteLine("I can't fly :( ");
+        }
     }
 }

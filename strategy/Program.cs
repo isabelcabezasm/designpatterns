@@ -6,7 +6,10 @@ namespace strategy
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Duck mallard = new MallardDuck();
+            mallard.performFly();
+            mallard.performQuack();
+            mallard.swim();
         }
     }
 }

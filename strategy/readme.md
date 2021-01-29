@@ -5,7 +5,7 @@ Strategy lets the algorithm vary independently from clients that use it.
 
 ## The problem
 
-When we have several types of "something", and all these types have the same functionalities/behaviors, but the way to be held is different between all of them, but sometimes they have some of them in common.
+When we have several types of "something", and all these types have the same functionalities/behaviors, but the way to be held is different among all of them, but sometimes they have some of them in common.
 
 **For example**: we have several types of birds of prey, all of them can fly, but some of them flap a lot their wings like hawks, sparrow hawk, or not moving them a lot and getting advance of the air flows (they fly in circles), like eagles, buzards, condors or owls.
 

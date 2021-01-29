@@ -16,7 +16,7 @@ When we have several types of "something", and all these types have the same fun
 
 **Another one**: animals can move: Some of them **walk** (dogs, cats, humans), others **jump** (kangoroos or rabits, grasshopper -_saltamontes, gafanhoto, cavalletta, grashüpfer_-), **swim** (tuna, sharks, whale, pinguin ) or **fly** (pigeon, dove), **crawl** (snakes, worms, snails).
 
-The functionality/behaviour is common, but the way to do this is different sometimes.
+The functionality/behavior is common, but the way to do this is different sometimes.
 
 So if we think about this as object, we could have an abstract or parent class "animals" with a method "move" (and maybe a implementation of any move, for example walk - or not-), but then all the children classes need their own implementation of "move".
 

@@ -54,7 +54,7 @@ Let's imagine we have several type of ducks:
 
 The domestic duck, the mallard duck, the sea duck, the rubber duck bath, and the duck decoy.
 
-![Interface and their classes](img/ducks.png)<br>
+![Type of ducks](img/ducks.png)<br>
 image from: [Identifying the 12 Types of Ducks](https://www.thespruce.com/types-of-ducks-387310)
 
 All my ducks can swim, but not of all them can fly neither quack.
@@ -63,3 +63,30 @@ So the behaviors I need to separate (because they are the different ones) are: Q
 My interfaces will be "IQuackable" (the duck can quack), and "IFlyable" (the duck can fly).<br>
 (Because my example will be in C# and...do you remember that best practices for interface naming in C# was starting with "I" (for Interface) and add the suffix -able? ) [Reference here](https://blog.submain.com/c-interface-definition-examples).
 
+![Interface and their classes (behaviors), ducks example](img/interfaces3.png)
+
+In the abstract class Duck will have (again) two delegates (in C#), or funtion pointers (in C).
+This two properties will be overwrite in the child class, with a concrete method.
+
+Notice that we have two methods "performQuack" and "performFly" **implemented** the abstract class.
+When we want that our (concrete) duck "speak", we'll call "performaQuack". Depending of the type of duck, it will act accordingly.  
+
+![Abstract class Duck and one child class: mallard duck  ](img/duckclass.png)
+
+You have the code already implemented in this folder "strategy". 
+Also you can see how to use ``MallardDuck`` class</code> in the ``Program.cs`` file:
+
+``` 
+Duck mallard = new MallardDuck();
+mallard.performFly();
+mallard.performQuack();
+mallard.swim();
+```
+
+Output: 
+
+```
+I'm flying!!
+Quack!!
+All ducks float, even decoys!
+``` 

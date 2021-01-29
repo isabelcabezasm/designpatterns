@@ -58,7 +58,7 @@ The domestic duck, the mallard duck, the sea duck, the rubber duck bath, and the
 image from: [Identifying the 12 Types of Ducks](https://www.thespruce.com/types-of-ducks-387310)
 
 All my ducks can swim, but not of all them can fly neither quack.
-So the behaviors I need to separate (because they are the different ones are: Quack and Fly)
+So the behaviors I need to separate (because they are the different ones) are: Quack and Fly.
 
 My interfaces will be "IQuackable" (the duck can quack), and "IFlyable" (the duck can fly).<br>
 (Because my example will be in C# and...do you remember that best practices for interface naming in C# was starting with "I" (for Interface) and add the suffix -able? ) [Reference here](https://blog.submain.com/c-interface-definition-examples).

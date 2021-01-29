@@ -3,7 +3,7 @@ using System;
 
 namespace strategy
 {
-    public class FlyNoWay : IFlyBehavior
+    public class FlyNoWay : IFlyable
     {
         public void fly()
         {

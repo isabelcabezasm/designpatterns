@@ -2,7 +2,7 @@ using System;
 
 namespace strategy
 {
-    public class MuteQuack : IQuackBehavior
+    public class MuteQuack : IQuackable
     {    public void quack()
         {
             Console.WriteLine("<<Silence>>");

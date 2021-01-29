@@ -2,7 +2,7 @@ using System;
 
 namespace strategy
 {
-    public class FlyWithWings : IFlyBehavior
+    public class FlyWithWings : IFlyable
     {   
         public void fly()
         {

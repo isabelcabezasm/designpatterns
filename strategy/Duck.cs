@@ -3,8 +3,8 @@ using System;
 namespace strategy
 {        
     public abstract class Duck {
-        protected IFlyBehavior flyBehavior;
-        protected IQuackBehavior quackBehavior;
+        protected IFlyable flyBehavior;
+        protected IQuackable quackBehavior;
 
         public Duck() {}
 

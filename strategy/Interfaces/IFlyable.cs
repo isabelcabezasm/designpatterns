@@ -1,6 +1,6 @@
 namespace strategy
 {
-    public interface IFlyBehavior {
+    public interface IFlyable {
     public void fly();
 }
 }

@@ -1,6 +1,6 @@
 namespace strategy
 {    
-    public interface IQuackBehavior {
+    public interface IQuackable {
         public void quack();
     }
 }

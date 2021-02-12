@@ -1,0 +1,33 @@
+classDiagram
+
+  class ISubject {
+    <<interface>>
+    registerObserver()
+    removeObserver()
+    notifyObservers()
+  }
+
+  class ConcreteSubject {
+    registerObserver()
+    removeObserver()
+    notifyObservers()
+    otherSubjectMethods()
+  }
+
+  class IObserver {
+    <<interface>>
+    update()
+  }
+
+  class ConcreteObserver {
+    update()
+    otherObserverMethod()
+  }
+  
+
+  IObserver <|.. ConcreteObserver
+  ISubject -- IObserver
+  ConcreteSubject -- ConcreteObserver
+  ISubject <|.. ConcreteSubject
+
+

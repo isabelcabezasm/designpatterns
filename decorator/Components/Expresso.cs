@@ -4,10 +4,10 @@ namespace decorator {
     public class Espresso : Beverage {
 
         public Espresso() {
-            this.description = "Espresso";
+            this.Description = "Espresso";
         }
 
-        public override double cost() {
+        public override double Cost() {
             return 1.99;
         }
 

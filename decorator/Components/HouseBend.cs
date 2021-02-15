@@ -4,10 +4,10 @@ namespace decorator {
     public class HouseBlend : Beverage {
 
         public HouseBlend() {
-            this.description = "House Blend coffee";
+            this.Description = "House Blend coffee";
         }
 
-        public override double cost() {
+        public override double Cost() {
             return 0.89;
         }
 

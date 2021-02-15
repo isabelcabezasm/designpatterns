@@ -8,13 +8,13 @@ namespace decorator
         {
             //Beverage without condiments
             Beverage beverage = new Espresso();
-            Console.WriteLine(beverage.getDescription() + ": " + beverage.cost() +"€");
+            Console.WriteLine(beverage.Description + ": " + beverage.Cost() +"€");
 
             Beverage beverage2 = new DarkRoast();
             beverage2 = new Mocha(beverage2); //wrap it with a mocha
             beverage2 = new Mocha(beverage2); //wrap it with a second mocha
             beverage2 = new Whip(beverage2); //wrap it with a Whip
-            Console.WriteLine(beverage2.getDescription() + ": " + beverage2.cost() +"€");
+            Console.WriteLine(beverage2.Description + ": " + beverage2.Cost() +"€");
 
         }
     }

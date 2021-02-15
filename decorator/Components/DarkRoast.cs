@@ -4,10 +4,10 @@ namespace decorator {
     public class DarkRoast : Beverage {
 
         public DarkRoast() {
-            this.description = "Dark Roast";
+            this.Description = "Dark Roast";
         }
 
-        public override double cost() {
+        public override double Cost() {
             return 0.99;
         }
 

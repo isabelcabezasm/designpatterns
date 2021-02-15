@@ -7,7 +7,7 @@ namespace decorator {
             this.description = "House Blend coffee";
         }
 
-        public double cost() {
+        public override double cost() {
             return 0.89;
         }
 

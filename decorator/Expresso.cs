@@ -7,7 +7,7 @@ namespace decorator {
             this.description = "Espresso";
         }
 
-        public double cost() {
+        public override double cost() {
             return 1.99;
         }
 

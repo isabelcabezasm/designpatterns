@@ -7,7 +7,7 @@ namespace decorator {
             this.description = "Dark Roast";
         }
 
-        public double cost() {
+        public override double cost() {
             return 0.99;
         }
 

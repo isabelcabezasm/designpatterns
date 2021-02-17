@@ -44,13 +44,13 @@ In this scenario Gordon is the *Subject*: as soon as Batman arrives in the polic
 
 *Please notice that in this sample we are using C# code, so we leverage the existing interfaces for both subject and observers: IObservable and IObserver respectfully. Names and methods are slightly different compared to what we showed above, please review the [official documentation](https://docs.microsoft.com/en-us/dotnet/standard/events/observer-design-pattern) if you need more details about the observer pattern in C#*
 
-![ObserverSample1](./img/observerSample1.png)
+![ObserverSample1](./img/observerSample1.PNG)
 
 Gordon will not only keep Batman busy, but will also try to gather some information that might be useful for his friends: Batman's current location and hunger level and *pushes* these `Info` to its observers.
 
 Suddendly Catwoman shows up at the police station and tells Gordon that she also want to be part of the celebration. She will take care of the drinks, so she needs be notified by Gordon like all the others. In the meantime, Robin found a wanted criminal and needs to catch him, so he cannot handle all the notification from Gordon: he removes himself from the list of the observers for a while.
 
-![ObserverSample2](./img/observerSample2.png)
+![ObserverSample2](./img/observerSample2.PNG)
 
 Any of the observser can register or remove himself very easily, with no changes required on the subject side. You can take a look at the code in the ObserverSample to see the details of this simple implementation.
 

@@ -56,11 +56,26 @@ Any of the observser can register or remove himself very easily, with no changes
 
 ### How to run the sample application
 
-If you are curious and want to run the sample app, just run this commands:
+If you are curious and want to take a look at the sample app, just run this commands:
 
-```
+```ps
 cd ObserverSample
 dotnet run
 ```
 
-*Spoiler alert: the big plan succeeded and at the end of the day Batman and friends celebrated with a huge surprise party!*
+This is the initial output you should get:
+
+```
+Hello there, I'm Gordon and I will keep Batman busy to help you guys organize his surprise party.
+------------------------------------------------
+Alfred: subscribed
+Robin: subscribed
+Batgirl: subscribed
+------------------------------------------------
+Alfred: latest info from Gordon -> location: Police station, Batman is hungry
+Robin: latest info from Gordon -> location: Police station, Batman is hungry      
+Batgirl: Latest info from Gordon -> I only care about the location: Police station
+...
+```
+
+*Spoiler alert: the big plan succeeded and at the end of the day Batman and friends celebrated with an amazing surprise party!*

@@ -1,6 +1,5 @@
-strategy/obj/*
-strategy/bin/*
-decorator/obj/*
-decorator/bin/*
+
+**/obj/*
+**/bin/*
 
 

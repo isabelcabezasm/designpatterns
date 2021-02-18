@@ -69,7 +69,7 @@ public virtual string Description { get; protected set; } = "Unknown Beverage";
 ``` 
 
 The concrete components implement the constructor setting the Description property and the method <code>Cost()</code> like this: <br>
-_for example [Decaf.cs](Components/Decaf.cs)_
+_for example [Decaf.cs](Coffee/Components/Decaf.cs)_
 
 ``` 
 public Decaf() {
@@ -81,7 +81,7 @@ public override double Cost() {
 }
 ``` 
 And then the concret decorators (condiments), implement the getter of Description and the method <code>Cost()</code> like this: <br>
-_for example [Soy.cs](Decorators/Soy.cs)_
+_for example [Soy.cs](Coffee/Decorators/Soy.cs)_
 
 ``` 
 public override string Description => _beverage.Description + ", Soy";
@@ -91,7 +91,7 @@ public override double Cost(){
 }
 ``` 
 
-Then [Program.cs](Program.cs) create an Espresso (without toppings/condiments)
+Then [Program.cs](Coffee/Program.cs) create an Espresso (without toppings/condiments)
 
 ``` 
 Beverage beverage = new Espresso();

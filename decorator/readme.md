@@ -70,9 +70,29 @@ And this store, as most of the Lego stores, has a section where you can create y
 
 Here, you can choose the superhero/superheroine you want:
 
-Like superwoman: 
+Like Superwoman, Batman, Catgirl, Spiderman, Captain Marvel...<br> 
+_yes, sorry, in our store DC, Marvel, and others are all mixed..._ 
 
 ![superwoman](img/supergirl2.jpg)
 
+And then you can buy some accessories for them: a cape, a belt, a mask, a shield, a sword... <br>
+Can you buy a sword to Superwoman? Yes: the doll hand of Superwoman is exacly the same than the hand of Wonderwoman, so you _could_ add any accessory.
+It's *your* responsability choosing the right one. 
 
 
+
+![batcar](img/batcar.PNG)
+<br>We have a lot of accessories for our Super heroes/heroines.
+
+And sorry about this, but they don't have all the same prize. The cape is much more cheaper than the mask, and they are much more cheaper than the batcar.
+But if you buy a shield (for example), it's the same prize if you buy it for Captain America than for Wonderwoman. 
+
+So, let's see the implementation:
+
+We have an abstract class "Superhero" for the components. And several concret components: the superheroes and superheroines themselves: Superwoman, batgirl, Captain Marvel, Spiderman, etc...
+
+They have a description and an original prize. 
+
+Then we can buy complement to the uniform, or accessories: We have masks, shields, weapons, swords, belts, 
+
+![SuperHeroes classes](img/superheroes-classes.PNG)

@@ -53,26 +53,57 @@ The Decorators are concrete classes that extends an abstract decorator. (Ingredi
 These decorators needs to have a reference to the component they are decorating. 
 So, when they implement the methods ("getCost" or "getDescription"), the component method will be called and to that behaviour, data, information, that the decorator adds. 
 
-## Another example with superheroes 
+## Another example with coffees 
+You can see in this repository the implementation of this pattern with coffees. That is the one that the book ["Head First Design Patterns"](https://www.oreilly.com/library/view/head-first-design/0596007124) offers: 
 
+![Beverage abstract class, four concrete objects for beverage(coffees) as components, one Condiment Decorator abstract class, and several condiments like milk, mocha, soy... ](img/coffee-decorator.png)
 
-You can see in this repository the implementation of this pattern with Lego superheroes.
+Here, you can see that for C# I've implemented a little bit different the method <code> getDescription</code> and <code> Cost()</code>.
 
-Imagine a Lego store specialized in Super heroes: 
+<code> getDescription</code>, it just the getter of the description property. 
 
-![lego superheroes ](img/heroes1.jpg)
+In the abstract component you can see:
 
-And this store, as most of the Lego stores, has a section where you can create your own mini-figure, picking different bodies, heads, complements:
+``` 
+public virtual string Description { get; protected set; } = "Unknown Beverage";
+``` 
 
-![lego store](img/minifigure1.jpg) 
+The concrete components implement the constructor setting the Description property and the method <code>Cost()</code> like this: <br>
+_for example [Decaf.cs](Components/Decaf.cs)_
 
-![lego store](img/minifigure2.jpg)
+``` 
+public Decaf() {
+    this.Description = "Decaf Roast";
+}
 
-Here, you can choose the superhero/superheroine you want:
+public override double Cost() {
+    return 1.05;
+}
+``` 
+And then the concret decorators (condiments), implement the getter of Description and the method <code>Cost()</code> like this: <br>
+_for example [Soy.cs](Decorators/Soy.cs)_
 
-Like superwoman: 
+``` 
+public override string Description => _beverage.Description + ", Soy";
 
-![superwoman](img/supergirl2.jpg)
+public override double Cost(){
+    return .15 + _beverage.Cost();
+}
+``` 
 
+Then [Program.cs](Program.cs) create an Espresso (without toppings/condiments)
 
+``` 
+Beverage beverage = new Espresso();
+Console.WriteLine(beverage.Description + ": " + beverage.Cost() +"€");
+``` 
 
+And also a Dark Roast, with two shots of mocha, and Whip, using the component and decorator constructors like this: 
+
+``` 
+Beverage beverage2 = new DarkRoast();
+beverage2 = new Mocha(beverage2); //wrap it with a mocha
+beverage2 = new Mocha(beverage2); //wrap it with a second mocha
+beverage2 = new Whip(beverage2); //wrap it with a Whip
+Console.WriteLine(beverage2.Description + ": " + beverage2.Cost() +"€");
+``` 

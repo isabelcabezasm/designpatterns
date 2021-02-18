@@ -122,7 +122,7 @@ public override double Cost() {
     return 23.4;
 }
 ``` 
-And then the concret decorators (condiments), implement the getter of Description and the method <code>Cost()</code> like this: <br>
+And then the concret decorators (accessories), implement the getter of Description and the method <code>Cost()</code> like this: <br>
 _for example [Shield.cs](Superhero/Decorators/Shield.cs)_
 
 ``` 

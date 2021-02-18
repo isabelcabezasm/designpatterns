@@ -96,3 +96,63 @@ They have a description and an original prize.
 Then we can buy complement to the uniform, or accessories: We have masks, shields, weapons, swords, belts, 
 
 ![SuperHeroes classes](img/superheroes-classes.PNG)
+
+
+
+
+Here, you can see that for C# I've implemented a little bit different the method <code> getDescription</code> and <code> Cost()</code>.
+
+<code> getDescription</code>, it just the getter of the description property. 
+
+In the abstract component you can see:
+
+``` 
+public virtual string Description { get; protected set; } = "Unknown Superhero";
+``` 
+
+The concrete components implement the constructor setting the Description property and the method <code>Cost()</code> like this: <br>
+_for example [Superwoman.cs](Superhero/Components/Superwoman.cs)_
+
+``` 
+public Superwoman() {
+    this.Description = "Superwoman";
+}
+
+public override double Cost() {
+    return 23.4;
+}
+``` 
+And then the concret decorators (condiments), implement the getter of Description and the method <code>Cost()</code> like this: <br>
+_for example [Shield.cs](Superhero/Decorators/Shield.cs)_
+
+``` 
+public override string Description => _figure.Description + ", with shield";
+
+public override double Cost(){
+    return .15 + _figure.Cost();
+}
+``` 
+
+Then [Program.cs](Superhero/Program.cs) create an Superwoman without any accessory
+
+``` 
+Superhero figure = new Superwoman();
+Console.WriteLine(figure.Description + ": " + figure.Cost() +"€");
+``` 
+
+And also a Wonderwoman, with two swords and one shield, using the component and decorator constructors like this: 
+
+``` 
+Superhero figure2 = new Wonderwoman();
+figure2 = new Shield(figure2); //wrap it with a  Shield
+figure2 = new Sword(figure2); //wrap it with Sword
+figure2 = new Sword(figure2); //wrap it with a another Sword
+Console.WriteLine(figure2.Description + ": " + figure2.Cost() +"€");
+``` 
+
+And the answer will be:
+
+``` 
+Superwoman: 23.4€
+Wonderwoman, with shield, with sword, with sword: 28.42€
+``` 

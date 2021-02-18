@@ -91,7 +91,7 @@ public override double Cost(){
 }
 ``` 
 
-Then [Program.cs](Coffee/Program.cs) create an Espresso (without toppings/condiments)
+Then [Program.cs](Program.cs) create an Espresso (without toppings/condiments)
 
 ``` 
 Beverage beverage = new Espresso();

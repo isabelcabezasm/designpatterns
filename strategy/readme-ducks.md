@@ -73,7 +73,7 @@ When we want that our (concrete) duck "speak", we'll call "performaQuack". Depen
 
 ![Abstract class Duck and one child class: mallard duck  ](img/duckclass.png)
 
-You have the code already implemented in this folder "strategy". 
+You have the code already implemented in this folder "strategy/Duck". 
 Also you can see how to use ``MallardDuck`` class</code> in the ``Program.cs`` file:
 
 ``` 

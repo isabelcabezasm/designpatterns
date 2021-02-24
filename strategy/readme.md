@@ -119,4 +119,22 @@ So the implementation of the concrete super heroines will be like this:
 
 ![super heroines concrete classes](img/heroinesclasses.png)
 
-You can find the implementation of the superheroes sample in this repo, in the Superhero folder.
+You can find the implementation of the superheroes sample in this repo, in the strategy/Superhero folder.
+Also you can see how to use ``Superhero`` class in the ``Program.cs`` file:
+
+```
+    Superhero heroine1 = new Wonderwoman();            
+    heroine1.Introduction();
+    heroine1.performAttack();
+    heroine1.performFly();
+``` 
+Output: 
+
+```
+Hi! My name is Princess Diana of Themyscira, but I'm more known as Wonder Woman
+The way I fight against my enemies is using my huge strength
+I use a very advance technology for flying: jet boots, aircrafts, or a very cool cape made of fabric from the future.
+``` 
+
+
+

@@ -103,3 +103,20 @@ Let see how to implement three concrete heroines: [Star Shapphire](https://en.wi
 ![super heroines](img/heroines.png)
 
 
+https://hero.fandom.com/wiki/Star_Sapphire_(DC_Comics) <br>
+https://www.dccomics.com/characters/zatanna <br>
+https://www.dccomics.com/characters/wonder-woman <br>
+
+After the properties of our super heroines (name, occupation, etc...) our object delegates (flyBehavior and attackBehavior) are going to refer the specific implementation of those behaviour.
+
+For example, Star Sapphire, as Superman, comes from another planet (from [Oa](https://en.wikipedia.org/wiki/Oa)) she can fly as well because the difference of the density of her natal planet and the Earth.
+
+Wonder Woman can flight thanks to a "transparent aircraft".
+
+![super heroines](img/wonderwoman.jpg)
+
+So the implementation of the concrete super heroines will be like this:
+
+![super heroines concrete classes](img/heroinesclasses.png)
+
+You can find the implementation of the superheroes sample in this repo, in the Superhero folder.

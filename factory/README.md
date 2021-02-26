@@ -117,9 +117,40 @@ Here you can see that there is not a *factory class*. The `Creator` is an `abstr
 
 ## How to use it
 
+In the *FactoryMethodSample* folder you can find a sample based on the same scenario we used for the simple factory, with some important differences that we are going to describe below.
 
+![FactoryMethod1](img\factoryMethod1.png)
+
+- The most relevant difference is that we removed the `CostumeFactory` class: we don't need it, because we want to use a *factory method* now.
+- `CostumeShop` is now an `abstract` class, with the `abstract` *factory method* `CreateCostume` to be implemented by each subclass.
+- We have 2 different classes extending `CostumeShop`. They both sell superheroe costumes, but their behavior is slightly different: one is specialized in *Human Heroe Costumes*, the other one in *Not Human Heroe Costumes*. In the image above you can see what that means: some costumes are not available in both shops.
+- The actual instantiation of the `ICostume` objects happens in `HumanHeroesCostumeShop` and `NotHumanHeroesCostumeShop`.
+- We have a new superheroe: Gamora. But this is not really important to explain the pattern, just useful for the sample.
 
 ### How to run
+
+To run the sample app, you just need to run this commands:
+
+```ps
+cd FactoryMethodSample
+dotnet run
+```
+
+This is the initial ouput you should see:
+
+```
+---- Shop1: HumanHeroes ----
+-> Exhibit Ironman costume in the shop window: > Ironman's costume:
+Red armor showing arc reactor
+Red jet-boots
+Red and gold helmet.
+This is the list of accessories: Jarvis Gloves with repulsor rays
+-> Exhibit BlackWidow costume in the shop window: > BlackWidow's costume:
+Black leather suit,
+Black boots,
+No mask.
+This is the list of accessories: Guns
+```
 
 # Abstract Factory
 

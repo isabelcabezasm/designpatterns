@@ -8,14 +8,15 @@ namespace SimpleFactorySample
     {
         public ICostume CreateCostume(string superheroe)
         {
+            // to add a new superheroe costume, we just add a case in the factory switch
             return superheroe switch
             {
                 "CaptainAmerica" => new CaptainAmericaCostume(),
                 "Ironman" => new IronmanCostume(),
                 "Thor" => new ThorCostume(),
-                // to add a new superheroe costume, like Black Widow, you just add a case in the factory switch
                 "BlackWidow" => new BlackWidowCostume(),
-                _ => null,
+                // we want to notify if a costume is not available
+                _ => new UnavailableCostume(),
             };
         }
     }

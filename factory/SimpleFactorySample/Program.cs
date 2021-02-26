@@ -15,13 +15,13 @@ namespace SimpleFactorySample
             CostumeShop shop2 = new CostumeShop(factory);
 
             Console.WriteLine("\n---- Shop1 ----");
-            Console.WriteLine(shop1.ViewCostume("Ironman"));
-            Console.WriteLine(shop1.ViewCostume("Thor"));
+            Console.WriteLine(shop1.ExhibitCostume("Ironman"));
+            Console.WriteLine(shop1.ExhibitCostume("Batman"));
 
             Console.WriteLine("\n---- Shop2 ----");
-            Console.WriteLine(shop2.ViewCostume("CaptainAmerica"));
-            Console.WriteLine(shop2.ViewCostume("Thor"));
-            Console.WriteLine(shop2.ViewCostume("BlackWidow"));
+            Console.WriteLine(shop2.ExhibitCostume("CaptainAmerica"));
+            Console.WriteLine(shop2.ExhibitCostume("Ironman"));
+            Console.WriteLine(shop2.ExhibitCostume("BlackWidow"));
 
         }
     }

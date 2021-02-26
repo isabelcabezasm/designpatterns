@@ -8,7 +8,7 @@ In the Simple Factory scenario, we basically have a factory class that is respon
 
 ## Problem
 
-You want your code to be flexible, so you decided to program to an interface, not an implementation. However, somewhere in your code you need to instantiate new objects, obviously. If you have multiple classes implementing the same interface and you need to instantiate different objects depending on a parameter, your code might become difficult to read and less flexible than what you expected.
+We want our code to be flexible, so we decided to program to an interface, not an implementation. However, somewhere in our code we need to instantiate new objects, obviously. If we have multiple classes implementing the same interface and we need to instantiate different objects depending on a parameter, our code might become difficult to read and less flexible than what we expected.
 
 Let's visualize the problem using a small example:
 
@@ -41,14 +41,15 @@ public class CostumeFactory {
 
   public ICostume CreateCostume(string superheroe) {
 
+    // to add a new superheroe costume, we just add a case in the factory switch
     return superheroe switch
     {
       "CaptainAmerica" => new CaptainAmericaCostume(),
       "Ironman" => new IronmanCostume(),
       "Thor" => new ThorCostume(),
       "BlackWidow" => new BlackWidowCostume(),
-      // to add a new superheroe costume, you just add a case here
-      _ => null,
+      // we use this class to notify if a costume is not available
+      _ => new UnavailableCostume(),
     };
   }
 }
@@ -68,7 +69,7 @@ In the *SimpleFactorySample* folder you can find a small console application usi
 
 !["SimpleFactory"](\img\simpleFactory.png)
 
-As you can see, the shop requires a factory to be able to actually instantiate the different costume objects. In this application, we actually have 2 different `CostumeShops` using the same factory, and you can easily view all the superheroes' costumes in both shops.
+As you can see, the shop requires a factory to be able to actually instantiate the different costume objects. In this application, we actually have 2 `CostumeShops` using the same factory, and you can easily view all the superheroes' costumes in both shops.
 Whenever we want to add a new costume, we just need to create a new class implementing `ICostume` and add a new `case` in the `switch` statement of the `CostumeFactory`, so that the costume can be available to all shops using that factory.
 
 ### How to run
@@ -84,28 +85,39 @@ This is the initial ouput you should see:
 
 ```
 ---- Shop1 ----
-> Ironman's costume:
+-> Exhibit Ironman costume in the shop window: > Ironman's costume:
 Red armor showing arc reactor
 Red jet-boots
 Red and gold helmet.
 This is the list of accessories: Jarvis Gloves with repulsor rays
-> Thor's costume:
-Leather suit,
-Black boots,
-Helmet with wings.
-This is the list of accessories: Mjölnir Red cape
+-> Exhibit Batman costume in the shop window: > Unavailable costume
 ...
 ```
 
 # Factory Method
 
+A *Factory Method* handles object creation and encapsulates it into sublcasses.
+
 ## Problem
+
+The problem is similar to the one mentioned above for the *Simple Factory*: we want our client code to be flexible and not responsible for the implementation of concrete objects.
 
 ## Solution
 
+Take a look at the diagram below:
+
+![FactoryMethod](img\factoryMethod.png)
+
+Here you can see that there is not a *factory class*. The `Creator` is an `abstract` class and it declares the `abstract FactoryMethod`, which returns an object of type `IProduct`. The actual creation of this object is in the `ConcreteCreator` subclass, which overrides the `FactoryMethod` and is responsible for choosing which `ConcreteProduct` to instantiate.
+
 ### Advantages of this solution
 
+- This approach allows to decouple the client code in the superclass from the object creation in the subclass: the client doesn't need to know exactly which object will be instantiated, it only knows that it will be an implementation of the interface it needs.
+- We can have multiple `ConcreteCreator` subclasses, and each one of them can have a specific implementation of the `FactoryMethod` and create instances of different `ConcreteProducts`.
+
 ## How to use it
+
+
 
 ### How to run
 

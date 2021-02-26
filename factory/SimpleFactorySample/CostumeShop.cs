@@ -13,10 +13,12 @@ namespace SimpleFactorySample
         {
             this.factory = factory;
         }
-        public string ViewCostume(string superheroe)
+        public string ExhibitCostume(string superheroe)
         {
             costume = factory.CreateCostume(superheroe);
-            return costume.AssembleCostume();
+            string assembled = costume.AssembleCostume();
+
+            return $"-> Exhibit {superheroe} costume in the shop window: {assembled}";
         }
     }
 }

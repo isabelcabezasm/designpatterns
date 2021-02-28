@@ -13,11 +13,11 @@ namespace SuperheroStrategy
         public Superhero() {}
 
         public void performFly(){
-            flyBehavior.fly();
+            flyBehavior.Fly();
         }
         
         public void performAttack() {
-            attackBehavior.attack();
+            attackBehavior.Attack();
         } 
 
         public void Introduction(){

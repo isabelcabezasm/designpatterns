@@ -5,7 +5,7 @@ namespace SuperheroStrategy
 {
     public class FlyNoWay : IFlyable
     {
-        public void fly()
+        public void Fly()
         {
             Console.WriteLine("I can't fly :( ");
         }

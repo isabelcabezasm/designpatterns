@@ -193,6 +193,8 @@ Take a look at the new diagram below.
 - `CostumeShop` is our client: depending on the factory used to create it, it will set up its shop window using *humans* or *not humans* costumes. As you can see, the client depends only upon abstractions (`IWomanCostume`, `IManCostume`, `ICostumeFactory`) and has no visibility of any concrete implementation.
 - To align the sample with the basic pattern described above, we removed Captain America costume and simplified the costume interfaces a bit.
 
+In the main class we basically create 2 different shops: one using `HumanHeroesCostumeFactory` and another one using `NotHumanHeroesCostumeFactory` and we can see that their windows look very different.
+
 ### How to run
 
 To run the sample app, you just need to run this commands:
@@ -218,4 +220,5 @@ This is the list of accessories: Jarvis Gloves with repulsor rays
 Black leather suit with boots,
 Red wig.
 This is the list of accessories: Guns
+...
 ```

@@ -4,7 +4,7 @@ Here we would like to describe different approaches about using a Factory in you
 
 # Simple Factory
 
-In the Simple Factory scenario, we basically have a factory class that is responsible for creating different types of object, based on a given input.
+In the *Simple Factory* scenario, we basically have a factory class that is responsible for creating different types of object, based on a given input.
 
 ## Problem
 
@@ -96,7 +96,7 @@ This is the list of accessories: Jarvis Gloves with repulsor rays
 
 # Factory Method
 
-A *Factory Method* handles object creation and encapsulates it into sublcasses.
+A *Factory Method* handles object creation and encapsulates it into sublcasses. This pattern defines an intreface for creating objects, but lets sublcasses decide which class to instantiate.
 
 ## Problem
 
@@ -154,12 +154,68 @@ This is the list of accessories: Guns
 
 # Abstract Factory
 
+The *Abstract Factory* pattern provides an interface for creating *families* of related or dependent objects, without specifying their concrete classes. Thanks to this, we can create objects using *composition*.
+
 ## Problem
+
+Once again, the main problem is similar to the one mentioned above for the other factory patterns: we want our client code to be flexible and not responsible for the implementation of concrete objects. In this context, though, we have different *families* of related objects and we want to use *composition* to implement them properly.
 
 ## Solution
 
+The diagram below explains the *Abstract Factory* pattern.
+
+![AbstractFactory](img\abstractFactory.png)
+
+The first thing to notice, which is different compared to the scenarios above, is that here we have 2 *families* of products: `AbstractProductA` and `AbstractProductB`, and of course we can have multiple sublasses implementing those interfaces.
+
+We also have an `AbstractFactory` class that the client can use to reference the creation of both products A and B, even though the actual implementation happens in 2 different factories: `ConcreteFactory1` and `ConcreteFactory2`. The reason is that `ConcreteFactory1` will instantiate `ProductA1` and `ProductB1` objects, while `ConcreteFactory2` will instantiate `ProductA2` and `ProductB2` objects, as you can see following the blue and organge arrows respectively.
+
+The `Client` uses `AbstractFactory` and `AbstractProduct` interfaces to create a family of related objects.
+
 ### Advantages of this solution
+
+- With this pattern, we are able to create families of products that are somehow related one each other.
+- The client is decoupled from the actual implementation of the objects, it works just with interfaces.
 
 ## How to use it
 
+We need to revisit our superheroe costumes sample here, because we now want our scenario to have 2 families of products. 
+
+Take a look at the new diagram below.
+
+![AbstractFactory1](img\abstractFactory1.png)
+
+- As mentioned above, we need 2 *families* of products: `IWomanCostume` and `IManCostume`. So now our costumes must implement one of these interfaces. Of course we might add several other families: animals, plants, robots, etc.
+- We have an `ICostumeFactory` interface, which defines 2 methods: `CreateWomanCostume` and `CreateManCostume`.
+- We also have 2 concrete classes to implement those obects:
+  - `HumanHeroesCostumeFactory` is able to create costumes using materials available on Earth, so it will return a `BlackWidowCostume` and a `IronmanCostume`;
+  - `NotHumanHeroesCostumeFactory` can create costumes using materials retrieved on other planets, so it will return a `GamoraCostume` and a `ThorCostume`.
+- `CostumeShop` is our client: depending on the factory used to create it, it will set up its shop window using *humans* or *not humans* costumes. As you can see, the client depends only upon abstractions (`IWomanCostume`, `IManCostume`, `ICostumeFactory`) and has no visibility of any concrete implementation.
+- To align the sample with the basic pattern described above, we removed Captain America costume and simplified the costume interfaces a bit.
+
 ### How to run
+
+To run the sample app, you just need to run this commands:
+
+```ps
+cd AbstractFactorySample
+dotnet run
+```
+
+This is the initial ouput you should see:
+
+```
+----- On Planet Earth -----
+
+COSTUME SHOP WINDOW
+Materials available on Planet Earth
+> Ironman's costume:
+Red armor showing arc reactor
+Red jet-boots
+Red and gold helmet.
+This is the list of accessories: Jarvis Gloves with repulsor rays 
+> BlackWidow's costume:
+Black leather suit with boots,
+Red wig.
+This is the list of accessories: Guns
+```

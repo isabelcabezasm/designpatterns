@@ -106,7 +106,7 @@ The problem is similar to the one mentioned above for the *Simple Factory*: we w
 
 Take a look at the diagram below:
 
-![FactoryMethod](img\factoryMethod.png)
+![FactoryMethod](img/factoryMethod.png)
 
 Here you can see that there is not a *factory class*. The `Creator` is an `abstract` class and it declares the `abstract FactoryMethod`, which returns an object of type `IProduct`. The actual creation of this object is in the `ConcreteCreator` subclass, which overrides the `FactoryMethod` and is responsible for choosing which `ConcreteProduct` to instantiate.
 
@@ -119,7 +119,7 @@ Here you can see that there is not a *factory class*. The `Creator` is an `abstr
 
 In the *FactoryMethodSample* folder you can find a sample based on the same scenario we used for the simple factory, with some important differences that we are going to describe below.
 
-![FactoryMethod1](img\factoryMethod1.png)
+![FactoryMethod1](img/factoryMethod1.png)
 
 - The most relevant difference is that we removed the `CostumeFactory` class: we don't need it, because we want to use a *factory method* now.
 - `CostumeShop` is now an `abstract` class, with the `abstract` *factory method* `CreateCostume` to be implemented by each subclass.
@@ -164,7 +164,7 @@ Once again, the main problem is similar to the one mentioned above for the other
 
 The diagram below explains the *Abstract Factory* pattern.
 
-![AbstractFactory](img\abstractFactory.png)
+![AbstractFactory](img/abstractFactory.png)
 
 The first thing to notice, which is different compared to the scenarios above, is that here we have 2 *families* of products: `AbstractProductA` and `AbstractProductB`, and of course we can have multiple sublasses implementing those interfaces.
 
@@ -183,7 +183,7 @@ We need to revisit our superheroe costumes sample here, because we now want our 
 
 Take a look at the new diagram below.
 
-![AbstractFactory1](img\abstractFactory1.png)
+![AbstractFactory1](img/abstractFactory1.png)
 
 - As mentioned above, we need 2 *families* of products: `IWomanCostume` and `IManCostume`. So now our costumes must implement one of these interfaces. Of course we might add several other families: animals, plants, robots, etc.
 - We have an `ICostumeFactory` interface, which defines 2 methods: `CreateWomanCostume` and `CreateManCostume`.

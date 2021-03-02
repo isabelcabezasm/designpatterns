@@ -4,14 +4,8 @@ using System.Text;
 
 namespace AbstractFactorySample
 {
-    public interface IWomanCostume
-    {
-        //public string Suit { get; }
-        //public string Boots { get; }
-        //public string Mask { get; }
-        //public List<string> Accessories { get; }
-
-        public string AssembleCostume();
-
-    }
+  public interface IWomanCostume
+  {
+    public string AssembleCostume();
+  }
 }

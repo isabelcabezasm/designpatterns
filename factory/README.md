@@ -123,7 +123,7 @@ In the *FactoryMethodSample* folder you can find a sample based on the same scen
 
 - The most relevant difference is that we removed the `CostumeFactory` class: we don't need it, because we want to use a *factory method* now.
 - `CostumeShop` is now an `abstract` class, with the `abstract` *factory method* `CreateCostume` to be implemented by each subclass.
-- We have 2 different classes extending `CostumeShop`. They both sell superheroe costumes, but their behavior is slightly different: one is specialized in *Human Heroe Costumes*, the other one in *Not Human Heroe Costumes*. In the image above you can see what that means: some costumes are not available in both shops.
+- We have 2 different classes extending `CostumeShop`. They both sell superheroe costumes, but their behavior is slightly different: one is specialized in superheroes from planet Earth (*Human Heroe Costumes*), the other one in superheroes from other planets (*Not Human Heroe Costumes*). In the image above you can see what that means: costumes are not available in both shops.
 - The actual instantiation of the `ICostume` objects happens in `HumanHeroesCostumeShop` and `NotHumanHeroesCostumeShop`.
 - We have a new superheroe: Gamora. But this is not really important to explain the pattern, just useful for the sample.
 
@@ -150,11 +150,12 @@ Black leather suit,
 Black boots,
 No mask.
 This is the list of accessories: Guns
+...
 ```
 
 # Abstract Factory
 
-The *Abstract Factory* pattern provides an interface for creating *families* of related or dependent objects, without specifying their concrete classes. Thanks to this, we can create objects using *composition*.
+The *Abstract Factory* pattern provides an interface for creating *families* of related or dependent objects, without specifying their concrete classes. With this pattern we can create objects using *composition*.
 
 ## Problem
 

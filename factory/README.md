@@ -96,7 +96,7 @@ This is the list of accessories: Jarvis Gloves with repulsor rays
 
 # Factory Method
 
-A *Factory Method* handles object creation and encapsulates it into sublcasses. This pattern defines an intreface for creating objects, but lets sublcasses decide which class to instantiate.
+A *Factory Method* handles object creation and encapsulates it into sublcasses. This pattern defines an intreface for creating objects, but lets subclasses decide which class to instantiate.
 
 ## Problem
 

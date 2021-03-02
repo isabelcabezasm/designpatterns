@@ -67,7 +67,7 @@ This might seem just a small trick, but the `factory` class has some interesting
 
 In the *SimpleFactorySample* folder you can find a small console application using the simple factory.
 
-!["SimpleFactory"](img\simpleFactory.png)
+!["SimpleFactory"](img/simpleFactory.png)
 
 As you can see, the shop requires a factory to be able to actually instantiate the different costume objects. In this application, we actually have 2 `CostumeShops` using the same factory, and you can easily view all the superheroes' costumes in both shops.
 Whenever we want to add a new costume, we just need to create a new class implementing `ICostume` and add a new `case` in the `switch` statement of the `CostumeFactory`, so that the costume can be available to all shops using that factory.

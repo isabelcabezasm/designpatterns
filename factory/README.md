@@ -1,6 +1,6 @@
 # Factory Patterns
 
-Here we would like to describe different approaches about using a Factory in your code. We can identify 3 different patterns, described in details below: the *Simple Factory*, the *Factory Method* and the *Abstract Factory*.
+Here we would like to describe different approaches about using a Factory in our code. We can identify 3 different patterns, described in details below: the *Simple Factory*, the *Factory Method* and the *Abstract Factory*.
 
 # Simple Factory
 
@@ -26,7 +26,6 @@ ICostume ViewCostume() {
   } else if(blackWidow) {
     costume = new BlackWidowCostume();
   } ...
-
 }
 ```
 

@@ -20,7 +20,7 @@ Last but not least, we want a design that follows these basic principles:
 
 As you can see, a concrete subject implements *ISubject* and its methods: it will be able to add and remove observers and it will use *notifyObservers()* to update all the current observers whenever its state changes. Of course, the concrete subject can also have other methods, for getting and setting its state, for example.
 
-All the potential Observers need to implement *IObserver* and the *update()* method, which is called when the Subject's state changes. Please note that any class can be an observer, it just needs to implmenet *IObserver* interface and register with a concrete subject.
+All the potential Observers need to implement *IObserver* and the *update()* method, which is called when the Subject's state changes. Please note that any class can be an observer, it just needs to implement *IObserver* interface and register with a concrete subject.
 
 Going a little bit deeper into the solution, we have 2 options for the observer to get the update: either the Subject *pushes* the data to all the observers, or each observer *pulls* the data as needed. Even though this is an implementation detail, generally speaking *pulling* the data is a more flexilbe approach: each observer can pull just the data it requires, instead of getting all the data the subject want to share.
 

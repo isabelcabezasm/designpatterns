@@ -47,26 +47,26 @@ When we create the children classes (concrete animals, like cat, dog, tuna, snei
 
 ![Interface and their classes](img/animals1.png)
 
-(for not program to an implementation, I mean, not to associate the concrete method "MoveWalking" to a cat, we'll see another pattern to fix it.)
+(This is still not perfect: we shouldn't program to an implementation, associating the concrete method "MoveWalking" to a cat, but we'll see another pattern to fix it.)
 
 ## Another example with Superheroes
  
-We are creating an application about superheroes. On the design we see that superheroes has some superpowers in common. In fact they are several superpowers and abilities that a lot of of them share. Like flight, invisibility, extraordinary strength, super speed or move things without touching them. 
+We are creating an application about superheroes. On the design we see that superheroes have some superpowers in common. In fact there are several superpowers and abilities that a lot of of them share. Like flight, invisibility, extraordinary strength, super speed or move things without touching them. 
 
 ![Lego superheroes](img/legosuperheroes.jpg)
 
-But the reasons behind that behaviour are a little bit different between them. <br>
-For example, about **flying**, some of them has the enough advanced technology to fly: like Ironman, who has a jetboots or Batman who can use the cape, the batcar or a backpack, Thor that uses the magic of the hammer, or Superman, that as comes from another planet with more gravity than the Earth, he can flies. 
-The same happens when they **fight**, all of them can **attact and defend themselves**, and they have different ways to do it: like Spiderman uses the spider organic webbing, Superman and Hulk use his strenght, Storm from X-Men can control the weather or the air pressure, or Dr. Strange that uses magic.
+But the explainations behind the same behaviour can be a little bit different among them. <br>
+For example, about **flying**: some of them leverage advanced technology to fly, like Ironman, who has jetboots; or Batman, who can use the cape, the batmobile or a backpack; Thor that uses the magic of the hammer; or Superman, that comes from another planet with more gravity than the Earth.
+The same happens when they **fight**, because all of them can **attact and defend themselves**, but they have different ways to do it: Spiderman uses the spider organic webbing, Superman and Hulk use their strenght, Storm from X-Men can control the weather or the air pressure, or Dr. Strange uses magic.
 
 All my superheroes can fight, but not all can fly.
 
-So, here, we detect two behaviours: Fly and attack.
-In terms of having a name of an interface, the capability of flying of our superheroes will be named "Flyable" and the capacity of attacking (fighting) will be named "Attackable".
+So, here, we detect two behaviours: Fly and Attack.
+In terms of interface, the capability of flying of our superheroes will be named "Flyable" and the one of attacking (fighting) will be named "Attackable".
 
 We have a lot of superheroes that can fly, but they fly in different ways. 
-Let's just pick four ways to fly, although we could have much more, of course. Super heroes that can fly thanks to very advanced technology, like Ironman or Batman, or although they don't have that physical ability, they have a magical object: like Thor, who flies with the hammer. 
-It's difficult to say why some of them has a natural physical ability for flying, but one of the explanations are that they original planet density was bigger than the Earth density, so they can escape the gravity: like Supergirl, Superman or Sapphire. 
+Let's just pick four ways to fly, although we could have much more, of course. Superheroes that can fly thanks to very advanced technology, like Ironman or Batman, or thanks to a magical object, like Thor, who flies with the hammer. 
+It's difficult to say why some of them have a natural physical ability for flying, but one of the explanations is that their original planet density was bigger than the Earth density, so they can escape the gravity: like Supergirl, Superman or Sapphire. 
 
 My interfaces will be "IFlyable" (the superhero can fly), and "IAttackable" (the superhero can attack).<br>
 (Because my example will be in C# and...do you remember that best practices for interface naming in C# was starting with "I" (for Interface) and add the suffix -able? ) [Reference here](https://blog.submain.com/c-interface-definition-examples).
@@ -75,10 +75,10 @@ Finally, the interface of the flight behaviour, implemented by all our superhero
 
 ![Interface for flying](img/flyinginterface.PNG)
 
-See that not all superheroes can fly, like Hulk or Black Canary, so we have a class that represent a behaviour called "FlyNoWay".
+See that not all superheroes can fly, like Hulk or Black Canary, so we have a class that represents a behaviour called "FlyNoWay".
 
 But they all can fight, and they need an "attack" action/behaviour. 
-They use different capabilities or skills to do it: some of them don't have a superpower, like Batman, who mainly uses the technology or a lot of them who are very very strong: like Superman, Spiderman, Hulk, Wonderwoman. Less common is to owe magic, or a magical article, like Thor who has the hammer, or Dr. Strange or Zatanna Zatara, whose superpower is real magic!
+They use different capabilities or skills to do it: some of them don't have a superpower, like Batman, who mainly uses the technology. A lot of them who are very very strong: like Superman, Spiderman, Hulk, Wonderwoman. Less common is to owe magic, or a magical article, like Thor who has the hammer, or Dr. Strange or Zatanna Zatara, whose superpower is real magic!
 
 The interface of the attacking behaviour, implemented by all our superheroes, looks like this schema:
 
@@ -88,11 +88,11 @@ The interface of the attacking behaviour, implemented by all our superheroes, lo
 
 
 
-In the abstract class Super Hero will have (again) two delegates (in C#), or funtion pointers (in C).
-This two properties will be overwrite in the child class, with a concrete method.
+In the abstract class SuperHero we will have (again) two delegates (in C#), or funtion pointers (in C).
+These two properties will be overwritten in the child class, with a concrete method.
 
 Notice that we have two methods "performAttack" and "performFly" **implemented** the abstract class.
-When we want that our (concrete) superhero "fly", we'll call "performaFly". Depending of the type of superhero, it will act accordingly.  
+When we want our (concrete) superhero to "fly", we'll call "performFly". Depending of the type of superhero, it will act accordingly.  
 
 ![Abstract class Superhero ](img/abstract.png)
 
@@ -107,11 +107,11 @@ https://hero.fandom.com/wiki/Star_Sapphire_(DC_Comics) <br>
 https://www.dccomics.com/characters/zatanna <br>
 https://www.dccomics.com/characters/wonder-woman <br>
 
-After the properties of our super heroines (name, occupation, etc...) our object delegates (flyBehavior and attackBehavior) are going to refer the specific implementation of those behaviour.
+After the properties of our super heroines (name, occupation, etc...) our object delegates (flyBehavior and attackBehavior) are going to refer the specific implementation of those behaviours.
 
-For example, Star Sapphire, as Superman, comes from another planet (from [Oa](https://en.wikipedia.org/wiki/Oa)) she can fly as well because the difference of the density of her natal planet and the Earth.
+For example, Star Sapphire, as Superman, comes from another planet (from [Oa](https://en.wikipedia.org/wiki/Oa)) and she can fly as well because of the density difference with Earth.
 
-Wonder Woman can flight thanks to a "transparent aircraft".
+Wonder Woman can fly thanks to a "transparent aircraft".
 
 ![super heroines](img/wonderwoman.jpg)
 

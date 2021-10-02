@@ -35,11 +35,65 @@ These are the most relevant advantages of the Singleton Pattern:
 
 However, we need to take into account also some disadvantages: using the Singleton Pattern with locks reduces the potential for parallelism, and having a global state in the application could introduce some challenges in unit tests.
 
+## How to use it
+
+Let's use Batman as an example: of course we all know that there is `one and only one` Batman! But Gotham City is a dangerous place, a lot of people needs help.
+
+![BatmanSingleton](./img/singletonBatman.jpg)
+
+We are going to show a couple of different implementations, both valuable if aligned with your specific system requirements.
 
 ### No Thread-Safe Singleton Design Pattern
 
 This is the easiest implementation, designed for single-thread systems.
+As you can see, the instance is lazy-loaded, after checking if there is already an existing instance of Batman.
 
-```cshapr
+```csharp
+    public sealed class Batman
+    {
+        // static instance
+        private static Batman instance = null;
 
+        // private parameterless constructor
+        private Batman() { }
+
+        // public method to return the single instance - no thread-safe
+        public static Batman Instance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new Batman();
+                }
+                return instance;
+            }
+        }
+    }
+
+```
+
+It's very important to notice that this solution does not support multi-thread systems: if 2 threads request a Batman instance concurrently, they both could see the instance as null and they would end up creating 2 different instances of Batman, violating the Singleton Pattern.
+
+### How to run
+
+To run the sample app, you just need to run this commands:
+
+```ps
+cd SingletonSampleNTS
+dotnet run
+```
+
+This is the ouput you should see:
+
+```
+Gordon needs Batman Help!
+... Creating an new instance of Batman ...
+Don't panic! Batman is here, with his Batmobile!
+Now Alfred needs Batman Help!
+... Same old instance of Batman ...
+Don't panic! Batman is here, with his Batmobile!
+Oh no, Joker is robbing the bank!
+... Same old instance of Batman ...
+Don't panic! Batman is here, with his Batmobile!
 ```

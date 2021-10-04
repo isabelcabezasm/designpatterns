@@ -80,17 +80,17 @@ It's very important to notice that this solution does not support multi-thread s
 To run the sample app, you just need to run this commands:
 
 ```ps
-cd SingletonSampleNTS
+cd SingletonSamples
 dotnet run
 ```
 
 This is the ouput you should see:
 
 ```
-Gordon needs Batman Help!
+Gordon needs Batman's help!
 ... Creating an new instance of Batman ...
 Don't panic! Batman is here, with his Batmobile!
-Now Alfred needs Batman Help!
+Now Alfred needs Batman at the Wayne Manor!
 ... Same old instance of Batman ...
 Don't panic! Batman is here, with his Batmobile!
 Oh no, Joker is robbing the bank!

@@ -1,6 +1,6 @@
 # Singleton Pattern
 
-The Singleton Pattern ensures a class has only one instance, and provides a global point of access to it.
+The Singleton Pattern ensures a class has only one instance, and it provides a global point of access to it.
 
 ## Problem
 
@@ -108,7 +108,7 @@ Joker's Request: Don't panic! Batman BW348 is here, with his Batmobile!
 
 As you can see, the order of the requests can be different, but the most important thing to notice is that the Batman instance is created multiple times by the different threads, in fact we can see different unique ids.
 
-There are different ways to have a thread-safe implementation of the Singleton pattern, for example by using locks or no lazy instantiation. However, we want to focus on a new easy implementation, by using `Lazy<T>`.
+There are different ways to have a thread-safe implementation of the Singleton pattern, for example by using locks or no lazy instantiation. However, we want to focus on a new easy implementation, by using `Lazy<T>` type.
 
 ### Lazy type for Thread-Safe Singleton Design Pattern
 

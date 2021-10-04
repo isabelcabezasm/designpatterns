@@ -165,14 +165,12 @@ By default, the sample runs the `SingleThreadApp` and this is the ouput you shou
 
 ```
 Gordon needs Batman's help!
-... Creating an new instance of Batman ...
-Don't panic! Batman is here, with his Batmobile!
-Now Alfred needs Batman at the Wayne Manor!
-... Same old instance of Batman ...
-Don't panic! Batman is here, with his Batmobile!
+... new instance of Batman created: BW781
+Don't panic! Batman BW781 is here, with his Batmobile!
+Now Alfred needs Batman at the Wayne Manor.
+Don't panic! Batman BW781 is here, with his Batmobile!
 Oh no, Joker is robbing the bank!
-... Same old instance of Batman ...
-Don't panic! Batman is here, with his Batmobile!
+Don't panic! Batman BW781 is here, with his Batmobile!
 ```
 
 You can easily explore the multi-thread solutions described above and see different outputs just by commenting/decommenting the different methods in `Program.cs`.

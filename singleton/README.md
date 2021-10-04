@@ -75,6 +75,44 @@ As you can see, the instance is lazy-loaded, after checking if there is already 
 
 It's very important to notice that this solution does not support multi-thread systems: if 2 threads request a Batman instance concurrently, they both could see the instance as null and they would end up creating 2 different instances of Batman, violating the Singleton Pattern.
 
+The code in the `SingletonSamples` folder shows what happens both with a single-thread and a multi-thread application using the `BatmanNTS` class. Its implementation is almost identical to the one showed above, but we added a unique ID to be able to identify the instance created in the application. 
+
+Here's the output of the `SingleThreadApp`:
+
+```
+Gordon needs Batman's help!
+... new instance of Batman created: BW781
+Don't panic! Batman BW781 is here, with his Batmobile!
+Now Alfred needs Batman at the Wayne Manor.
+Don't panic! Batman BW781 is here, with his Batmobile!
+Oh no, Joker is robbing the bank!
+Don't panic! Batman BW781 is here, with his Batmobile!
+```
+
+And here's the output of the `MultiThreadApp` using `no thread-safe` parameter:
+
+```
+Alfred needs Batman's help!
+Gordon needs Batman's help!
+Oh no! Joker is robbing the bank!
+... new instance of Batman created: BW330
+... new instance of Batman created: BW295
+Alfred's request: BW295 is coming.
+Gordon's request: BW330 is coming.
+Gordon's Request: Don't panic! Batman BW330 is here, with his Batmobile!
+Alfred's Request: Don't panic! Batman BW295 is here, with his Batmobile!
+... new instance of Batman created: BW348
+Joker's request: BW348 is coming.
+Joker's Request: Don't panic! Batman BW348 is here, with his Batmobile!
+```
+
+As you can see, the order of the requests can be different, but the most important thing to notice is that the Batman instance is created multiple times by the different threads, in fact we can see different unique ids.
+
+There are different ways to have a thread-safe implementation of the Singleton pattern, for example by using locks or no lazy instantiation. However, we want to focus on a new easy implementation, by using `Lazy<T>`.
+
+
+
+
 ### How to run
 
 To run the sample app, you just need to run this commands:

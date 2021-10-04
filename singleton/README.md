@@ -23,7 +23,7 @@ The static `GetInstance` method must have the logic to avoid the creation of mul
 - Thread-Safety Singleton implementation
 - Thread-Safety Singleton implementation using Double-Check Locking
 - Thread-Safe Singleton implementation without using the locks and no lazy instantiation
-- `Lazy<T>` type
+- [`Lazy<T>` type](#lazy-type-for-thread-safe-singleton-design-pattern)
 
 ## Advantages
 
@@ -110,8 +110,47 @@ As you can see, the order of the requests can be different, but the most importa
 
 There are different ways to have a thread-safe implementation of the Singleton pattern, for example by using locks or no lazy instantiation. However, we want to focus on a new easy implementation, by using `Lazy<T>`.
 
+### Lazy type for Thread-Safe Singleton Design Pattern
 
+```csharp
+public sealed class Batman
+    {
+        // static lazy instance
+        private static readonly Lazy<Batman> instance = new(() => new Batman() );
 
+        // private parameterless constructor
+        private Batman() { }
+
+        // public method to return the single instance
+        public static Batman Instance
+        {
+            get
+            {
+                // lazy initialization is thread-safe
+                return instance.Value;
+            }
+        }
+    }
+```
+
+By using the `Lazy<T>` type implementation, the code looks clean and the initialization of the resource is by default thread-safe. However, the object is not protected after creation. Please, refer to the [official documentation](https://docs.microsoft.com/en-us/dotnet/api/system.lazy-1?view=net-5.0) for all the details.
+
+We can take a look at the output of `MultiThreadApp` using `lazy` parameter:
+
+```
+Oh no, Joker is robbing the bank!
+Gordon needs Batman's help!
+Now Alfred needs Batman at the Wayne Manor.
+... new instance of Batman created: BW478
+Gordon's request: BW478 is coming.
+Alfred's request: BW478 is coming.
+Alfred's Request: Don't panic! Batman BW478 is here, with his Batmobile!
+Gordon's Request: Don't panic! Batman BW478 is here, with his Batmobile!
+Joker's request: BW478 is coming.
+Joker's Request: Don't panic! Batman BW478 is here, with his Batmobile!
+```
+
+As you can see, here `one and only one` instance of Batman is created (unique id: BW478), and it's used by all the different threads.
 
 ### How to run
 
@@ -122,7 +161,7 @@ cd SingletonSamples
 dotnet run
 ```
 
-This is the ouput you should see:
+By default, the sample runs the `SingleThreadApp` and this is the ouput you should see:
 
 ```
 Gordon needs Batman's help!
@@ -135,3 +174,5 @@ Oh no, Joker is robbing the bank!
 ... Same old instance of Batman ...
 Don't panic! Batman is here, with his Batmobile!
 ```
+
+You can easily explore the multi-thread solutions described above and see different outputs just by commenting/decommenting the different methods in `Program.cs`.

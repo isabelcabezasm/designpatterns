@@ -6,13 +6,13 @@ The Observer Pattern defines a one-to-many dependency between objects, so that w
 
 We have *one subject* and *many observers*, who need to be notified whenever something in the subject changes. To give a concrete example, you can think about multiple displays (*observers*) that should be updated whenever the value of a temperature sensor (*subject*) changes.
 
-That means that the observser are *dependent* on the subject, they can interact, but they need to have very little knowledge of each other. We want to be able to add, remove, replace observers easily at any time, without changing the code of the subject. We also want to reuse subject and observers independently of each other.
+That means that the observsers are *dependent* on the subject, they can interact, but they need to have very little knowledge of each other. We want to be able to add, remove, replace observers easily at any time, without changing the code of the subject. We also want to reuse subject and observers independently of each other.
 
 Last but not least, we want a design that follows these basic principles:
 
 - separate the aspects of the application that may vary from what stays the same
 - program to an interface and not to an implementation
-- strive for loosely coupled designs between object that interact
+- strive for loosely coupled designs between objects that interact
 
 ## Solution
 
@@ -22,7 +22,7 @@ As you can see, a concrete subject implements *ISubject* and its methods: it wil
 
 All the potential Observers need to implement *IObserver* and the *update()* method, which is called when the Subject's state changes. Please note that any class can be an observer, it just needs to implement *IObserver* interface and register with a concrete subject.
 
-Going a little bit deeper into the solution, we have 2 options for the observer to get the update: either the Subject *pushes* the data to all the observers, or each observer *pulls* the data as needed. Even though this is an implementation detail, generally speaking *pulling* the data is a more flexilbe approach: each observer can pull just the data it requires, instead of getting all the data the subject want to share.
+Going a little bit deeper into the solution, we have 2 options for the observer to get the update: either the Subject *pushes* the data to all the observers, or each observer *pulls* the data as needed. Even though this is an implementation detail, generally speaking *pulling* the data is a more flexilbe approach: each observer can pull just the data it requires, instead of getting all the data the subject wants to share.
 
 ### Advantages of this solution
 
@@ -48,7 +48,7 @@ In this scenario Gordon is the *Subject*: as soon as Batman arrives in the polic
 
 Gordon will not only keep Batman busy, but will also try to gather some information that might be useful for his friends: Batman's current location and hunger level and *pushes* these `Info` to its observers.
 
-Suddendly Catwoman shows up at the police station and tells Gordon that she also want to be part of the celebration. She will take care of the drinks, so she needs be notified by Gordon like all the others. In the meantime, Robin found a wanted criminal and needs to catch him, so he cannot handle all the notification from Gordon: he removes himself from the list of the observers for a while.
+Suddendly Catwoman shows up at the police station and tells Gordon that she also wants to be part of the celebration. She will take care of the drinks, so she needs to be notified by Gordon like all the others. In the meantime, Robin found a wanted criminal and needs to catch him, so he cannot handle all the notifications from Gordon: he removes himself from the list of the observers for a while.
 
 ![ObserverSample2](./img/observerSample2.PNG)
 

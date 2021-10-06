@@ -20,8 +20,8 @@ As you can see below, the Singleton Pattern is very simple, just a single class 
 The static `GetInstance` method must have the logic to avoid the creation of multiple instances. Actual implementations can be slightly different, depending on the requirements of the system. Here some examples:
 
 - [No Thread-Safe Singleton implementation](#no-thread-safe-singleton-design-pattern)
-- Thread-Safety Singleton implementation
-- Thread-Safety Singleton implementation using Double-Check Locking
+- Thread-Safe Singleton implementation
+- Thread-Safe Singleton implementation using Double-Check Locking
 - Thread-Safe Singleton implementation without using the locks and no lazy instantiation
 - [`Lazy<T>` type](#lazy-type-for-thread-safe-singleton-design-pattern)
 
@@ -37,7 +37,7 @@ However, we need to take into account also some disadvantages: using the Singlet
 
 ## How to use it
 
-Let's use Batman as an example: of course we all know that there is `one and only one` Batman! But Gotham City is a dangerous place, a lot of people needs help.
+Let's use Batman as an example: of course we all know that there is `one and only one` Batman! But Gotham City is a dangerous place, a lot of people need help.
 
 ![BatmanSingleton](./img/singletonBatman.jpg)
 

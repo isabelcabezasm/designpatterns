@@ -95,7 +95,7 @@ This is the list of accessories: Jarvis Gloves with repulsor rays
 
 # Factory Method
 
-A *Factory Method* handles object creation and encapsulates it into sublcasses. This pattern defines an intreface for creating objects, but lets subclasses decide which class to instantiate.
+A *Factory Method* handles object creation and encapsulates it into sublcasses. This pattern defines an interface for creating objects, but lets subclasses decide which class to instantiate.
 
 ## Problem
 
@@ -103,7 +103,7 @@ The problem is similar to the one mentioned above for the *Simple Factory*: we w
 
 ## Solution
 
-Take a look at the diagram below:
+Let's take a look at the diagram below:
 
 ![FactoryMethod](img/factoryMethod.png)
 
@@ -168,7 +168,7 @@ The diagram below explains the *Abstract Factory* pattern.
 
 The first thing to notice, which is different compared to the scenarios above, is that here we have 2 *families* of products: `AbstractProductA` and `AbstractProductB`, and of course we can have multiple sublasses implementing those interfaces.
 
-We also have an `AbstractFactory` class that the client can use to reference the creation of both products A and B, even though the actual implementation happens in 2 different factories: `ConcreteFactory1` and `ConcreteFactory2`. The reason is that `ConcreteFactory1` will instantiate `ProductA1` and `ProductB1` objects, while `ConcreteFactory2` will instantiate `ProductA2` and `ProductB2` objects, as you can see following the blue and organge arrows respectively.
+We also have an `AbstractFactory` class that the client can use to reference the creation of both products A and B, even though the actual implementation happens in 2 different factories: `ConcreteFactory1` and `ConcreteFactory2`. The reason is that `ConcreteFactory1` will instantiate `ProductA1` and `ProductB1` objects, while `ConcreteFactory2` will instantiate `ProductA2` and `ProductB2` objects, as you can see following the blue and orange arrows respectively.
 
 The `Client` uses `AbstractFactory` and `AbstractProduct` interfaces to create a family of related objects.
 
@@ -188,7 +188,7 @@ Take a look at the new diagram below.
 - As mentioned above, we need 2 *families* of products: `IWomanCostume` and `IManCostume`. So now our costumes must implement one of these interfaces. Of course we might add several other families: animals, plants, robots, etc.
 - We have an `ICostumeFactory` interface, which defines 2 methods: `CreateWomanCostume` and `CreateManCostume`.
 - We also have 2 concrete classes to implement those obects:
-  - `HumanHeroesCostumeFactory` is able to create costumes using materials available on Earth, so it will return a `BlackWidowCostume` and a `IronmanCostume`;
+  - `HumanHeroesCostumeFactory` is able to create costumes using materials available on Earth, so it will return a `BlackWidowCostume` and an `IronmanCostume`;
   - `NotHumanHeroesCostumeFactory` can create costumes using materials retrieved on other planets, so it will return a `GamoraCostume` and a `ThorCostume`.
 - `CostumeShop` is our client: depending on the factory used to create it, it will set up its shop window using *humans* or *not humans* costumes. As you can see, the client depends only upon abstractions (`IWomanCostume`, `IManCostume`, `ICostumeFactory`) and has no visibility of any concrete implementation.
 - To align the sample with the basic pattern described above, we removed Captain America costume and simplified the costume interfaces a bit.
